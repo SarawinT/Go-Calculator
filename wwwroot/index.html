@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>My Calculator</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <div class="container p-5">
+
+        <div class="row">
+
+            <div class="col-6">
+                <div class="border border-dark rounded p-3 bg-dark">
+                    <h1 class="text-white"><i class="bi bi-calculator"></i>&nbsp; Calculator</h1><br>
+                    <div class="border border-secondary rounded p-3 bg-white h-100" style="word-wrap: break-word;">
+                        <h3 class="mh-100" id="monitor"></h3>
+                    </div>
+                    <div class="border border-secondary rounded p-3 bg-white h-100" style="word-wrap: break-word;">
+                        <h2 class="mh-100 float-right" id="result"></h2>
+                    </div>
+                    <br>
+                    <div class="border border-secondary rounded p-3 bg-white">
+
+                        <div class="row mt-3">
+                            <div class="col-2">
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-secondary" style="width: 100%;"
+                                    onclick="pressed(' ( ')">(</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-secondary" style="width: 100%;"
+                                    onclick="pressed(' ) ')">)</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-secondary" style="width: 100%;"
+                                    onclick="pressed(' ^ ')">^</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-secondary" style="width: 100%;"
+                                    onclick="pressed(' sqrt( ')">sqrt</button>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('7')">7</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('8')">8</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('9')">9</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-warning" style="width: 100%;"
+                                    onclick="del()">DEL</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-danger" style="width: 100%;"
+                                    onclick="clearDisplay()">AC</button>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('4')">4</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('5')">5</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('6')">6</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-secondary" style="width: 100%;"
+                                    onclick="pressed(' x ')">x</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-secondary" style="width: 100%;"
+                                    onclick="pressed(' / ')">/</button>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('1')">1</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('2')">2</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('3')">3</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-secondary" style="width: 100%;"
+                                    onclick="pressed(' + ')">+</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-secondary" style="width: 100%;"
+                                    onclick="pressed(' - ')">-</button>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('00')">00</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('0')">0</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                                    onclick="pressed('.')">.</button>
+                            </div>
+                            <div class="col-4">
+                                <button type="button" class="btn btn-primary" style="width: 100%;"
+                                    onclick="cal()">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
