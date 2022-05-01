@@ -11,6 +11,8 @@ import (
 
 func SplitExpression(str string) ([]string, error) {
 
+	str = strings.ReplaceAll(str, "π", " ( "+fmt.Sprintf("%f", math.Pi)+" ) ")
+
 	for strings.Contains(str, "sqrt(") {
 		sqrFront := strings.Index(str, "sqrt(") + len("sqrt")
 		sqrBack := getMatchBracket(str, sqrFront)
@@ -66,7 +68,7 @@ func SplitExpression(str string) ([]string, error) {
 			splitted = temp
 		}
 	}
-	fmt.Println(splitted)
+	// fmt.Println(splitted)
 
 	return splitted, nil
 }

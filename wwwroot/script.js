@@ -1,6 +1,7 @@
 var tokens = []
 
 function pressed(c) {
+
     tokens[tokens.length] = c
     document.getElementById('result').innerHTML = ''
 
