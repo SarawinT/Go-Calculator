@@ -53,7 +53,20 @@ func SplitExpression(str string) ([]string, error) {
 			splitted[i] = ""
 			splitted[i+1] = "-" + splitted[i+1]
 		}
+
+		if (!isOperator(splitted[i-1]) && splitted[i] == "(") || (splitted[i-1] == ")" && splitted[i] == "(") {
+			temp := append(splitted[:i+1], splitted[i:]...)
+			temp[i] = "x"
+			splitted = temp
+		}
+
+		if splitted[i-1] == ")" && !isOperator(splitted[i]) {
+			temp := append(splitted[:i+1], splitted[i:]...)
+			temp[i] = "x"
+			splitted = temp
+		}
 	}
+	fmt.Println(splitted)
 
 	return splitted, nil
 }
