@@ -22,6 +22,10 @@ func SplitExpression(str string) ([]string, error) {
 		innerSqrt := str[sqrFront+1 : sqrBack]
 		sqrtWhole := str[sqrFront-len("sqrt") : sqrBack+1]
 
+		if len(innerSqrt) <= 2 || innerSqrt == "  " {
+			return nil, fiber.ErrBadRequest
+		}
+
 		innerSplit, err := SplitExpression(innerSqrt)
 		if err != nil {
 			return nil, err
